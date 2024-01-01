@@ -61,4 +61,13 @@ class AuthServices
             'access_token' => $accessToken
         ];
     }
+
+    public function register(array $data): array
+    {
+        $data["password"] = bcrypt($data["password"]);
+        $user = User::query()->create($data);
+        $user->refresh();
+        
+        return $user->only(['name', 'email']);
+    }
 }

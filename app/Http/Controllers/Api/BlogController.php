@@ -41,6 +41,7 @@ class BlogController extends Controller
 
         return response()->json([
             'true' => true,
+            'message' => "List Blogs",
             'data' => $data
         ]);
     }
@@ -70,6 +71,7 @@ class BlogController extends Controller
 
         return response()->json([
             'status' => true,
+            'message' => "Success create new blog",
             'data' => $data
         ]);
     }
@@ -89,6 +91,7 @@ class BlogController extends Controller
 
         return response()->json([
             'status' => true,
+            'message' => 'Detail blogs',
             'data' => $data
         ]);
     }
@@ -119,6 +122,7 @@ class BlogController extends Controller
 
         return response()->json([
             'status' => true,
+            'message' => 'Success Update Blogs',
             'data' => $data
         ]);
     }

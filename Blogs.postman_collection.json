@@ -1,0 +1,1406 @@
+{
+	"info": {
+		"_postman_id": "42f58f78-e498-4d73-835f-b16887ded608",
+		"name": "Blogs",
+		"description": "This api for test on jitilab",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\" : \"admin@example.com\",\n    \"password\" : \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}api/login",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"login"
+							]
+						},
+						"description": "this api for login"
+					},
+					"response": [
+						{
+							"name": "Login Failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"admin@example.com\",\n    \"password\" : \"passwor\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Jan 2024 14:34:37 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"error\": \"ERR_INVALID_CREDS\",\n    \"message\": \"incorrect username or password\"\n}"
+						},
+						{
+							"name": "Login Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\" : \"admin@example.com\",\n    \"password\" : \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8000/api/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8000",
+									"path": [
+										"api",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Jan 2024 14:34:14 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Login Success\",\n    \"data\": {\n        \"user\": {\n            \"id\": 1,\n            \"email\": \"admin@example.com\",\n            \"name\": \"Admin User\"\n        },\n        \"access_token\": \"2|dIXfafNKpxUIkSYTtKutxmun3PJu5N76IdDDlrnm26b4885c\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Imam Maulana Ashari\",\n    \"email\" : \"readytosurff@gmail.com\",\n    \"password\" : \"password\",\n    \"password_confirmation\" : \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{local}}api/register",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Register Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\" : \"Imam Maulana Ashari\",\n    \"email\" : \"readytosurff@gmail.com\",\n    \"password\" : \"password\",\n    \"password_confirmation\" : \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}api/register",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Jan 2024 14:33:36 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Register Success\",\n    \"data\": {\n        \"name\": \"Imam Maulana Ashari\",\n        \"email\": \"readytosurff@gmail.com\"\n    }\n}"
+						},
+						{
+							"name": "Register Failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\" : \"Imam Maulana Ashari\",\n    \"email\" : \"readytosurff@gmail.com\",\n    \"password\" : \"password\",\n    \"password_confirmation\" : \"password\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{local}}api/register",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Jan 2024 14:35:08 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"error\": \"ERR_BAD_REQUEST\",\n    \"message\": \"The email has already been taken.\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "3|TdU1lCWGpiSS0NuCstRRCdqIjWAXyubDqWEUCRth1a553444",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/logout",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Logout Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/logout",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"logout"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Jan 2024 14:42:03 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": true,\n    \"message\": \"Logout Success\",\n    \"data\": []\n}"
+						},
+						{
+							"name": "Logout Failed",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{local}}api/logout",
+									"host": [
+										"{{local}}api"
+									],
+									"path": [
+										"logout"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8000"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.3.0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Date",
+									"value": "Mon, 01 Jan 2024 14:42:15 GMT"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": false,\n    \"error\": \"ERR_INVALID_ACCESS_TOKEN\",\n    \"message\": \"invalid access token\"\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Get Blogs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|TdU1lCWGpiSS0NuCstRRCdqIjWAXyubDqWEUCRth1a553444",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}api/blogs?limit=10&page=1",
+					"host": [
+						"{{local}}api"
+					],
+					"path": [
+						"blogs"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "10"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Blogs",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/blogs?limit=10&page=1",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"blogs"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 Jan 2024 14:37:54 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"true\": true,\n    \"message\": \"List Blogs\",\n    \"data\": [\n        {\n            \"id\": 3,\n            \"uuid\": \"6287ba53-450d-459f-a6ec-131b5f29dbc0\",\n            \"title\": \"Blog Belajar 123\",\n            \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut minima, illum impedit repellendus, aut neque qui voluptatum tempore inventore quod at reprehenderit fugit ullam velit non quis ipsam iste molestias.\",\n            \"image\": \"http://localhost:8000/storage/images/pMvGpT3vUs18QyTceUt2MWrE3ZjoU2YnzhgCH8Ef.png\",\n            \"created_at\": \"2024-01-01T14:36:57.000000Z\",\n            \"updated_at\": \"2024-01-01T14:36:57.000000Z\"\n        },\n        {\n            \"id\": 2,\n            \"uuid\": \"ca14dd1f-46e1-460f-8773-391e1455eeec\",\n            \"title\": \"Blog update data\",\n            \"description\": \"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti vitae at architecto odit, suscipit corporis modi cum laboriosam necessitatibus impedit earum ex exercitationem nihil dolore sit, perferendis blanditiis inventore atque!\",\n            \"image\": \"http://localhost:8000/storage/images/a7xzNK3YOu1s3HXzpeuCoXJslJPzCpwveJtPWrCQ.jpg\",\n            \"created_at\": \"2024-01-01T14:33:31.000000Z\",\n            \"updated_at\": \"2024-01-01T14:36:20.000000Z\"\n        },\n        {\n            \"id\": 1,\n            \"uuid\": \"4918a2c2-bbcb-4928-bf2f-3ba434583e46\",\n            \"title\": \"Blog Post 1\",\n            \"description\": \"Quasi porro quibusdam sed velit magni. Dicta voluptatibus odio animi repellat et amet.\",\n            \"image\": \"https://example.com/image1.jpg\",\n            \"created_at\": \"2024-01-01T14:33:31.000000Z\",\n            \"updated_at\": \"2024-01-01T14:33:31.000000Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Create Blogs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|TdU1lCWGpiSS0NuCstRRCdqIjWAXyubDqWEUCRth1a553444",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "Blog Belajar 123",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut minima, illum impedit repellendus, aut neque qui voluptatum tempore inventore quod at reprehenderit fugit ullam velit non quis ipsam iste molestias.\n",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/wehmamxx/Documents/Screenshot at Sep 16 22-34-22.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{local}}api/blogs?limit=1&page=1",
+					"host": [
+						"{{local}}api"
+					],
+					"path": [
+						"blogs"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "1"
+						},
+						{
+							"key": "page",
+							"value": "1"
+						}
+					]
+				},
+				"description": "this api for create new blogs"
+			},
+			"response": [
+				{
+					"name": "Create Blogs Failed",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Blog Belajar 123",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut minima, illum impedit repellendus, aut neque qui voluptatum tempore inventore quod at reprehenderit fugit ullam velit non quis ipsam iste molestias.\n",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/wehmamxx/Documents/Screenshot at Sep 16 22-34-22.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}api/blogs?limit=1&page=1",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"blogs"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 Jan 2024 14:37:31 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"error\": \"ERR_BAD_REQUEST\",\n    \"message\": \"The title field is required.\"\n}"
+				},
+				{
+					"name": "Create Blogs Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "Blog Belajar 123",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut minima, illum impedit repellendus, aut neque qui voluptatum tempore inventore quod at reprehenderit fugit ullam velit non quis ipsam iste molestias.\n",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/wehmamxx/Documents/Screenshot at Sep 16 22-34-22.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}api/blogs?limit=1&page=1",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"blogs"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "1"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 Jan 2024 14:36:57 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "57"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Success create new blog\",\n    \"data\": {\n        \"id\": 3,\n        \"uuid\": \"6287ba53-450d-459f-a6ec-131b5f29dbc0\",\n        \"title\": \"Blog Belajar 123\",\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut minima, illum impedit repellendus, aut neque qui voluptatum tempore inventore quod at reprehenderit fugit ullam velit non quis ipsam iste molestias.\",\n        \"image\": \"public/images/pMvGpT3vUs18QyTceUt2MWrE3ZjoU2YnzhgCH8Ef.png\",\n        \"created_at\": \"2024-01-01T14:36:57.000000Z\",\n        \"updated_at\": \"2024-01-01T14:36:57.000000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Detail Blogs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|TdU1lCWGpiSS0NuCstRRCdqIjWAXyubDqWEUCRth1a553444",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{local}}api/blogs/3",
+					"host": [
+						"{{local}}api"
+					],
+					"path": [
+						"blogs",
+						"3"
+					]
+				},
+				"description": "get details blogs"
+			},
+			"response": [
+				{
+					"name": "Detail Blogs Failed",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/blogs/5",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"blogs",
+								"5"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 Jan 2024 14:38:16 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "57"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"error\": \"ERR_NOT_FOUND\",\n    \"message\": \"resource is not found\"\n}"
+				},
+				{
+					"name": "Detail Blogs Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/blogs/3",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"blogs",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 Jan 2024 14:38:33 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Detail blogs\",\n    \"data\": {\n        \"id\": 3,\n        \"uuid\": \"6287ba53-450d-459f-a6ec-131b5f29dbc0\",\n        \"title\": \"Blog Belajar 123\",\n        \"description\": \"Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut minima, illum impedit repellendus, aut neque qui voluptatum tempore inventore quod at reprehenderit fugit ullam velit non quis ipsam iste molestias.\",\n        \"image\": \"public/images/pMvGpT3vUs18QyTceUt2MWrE3ZjoU2YnzhgCH8Ef.png\",\n        \"created_at\": \"2024-01-01T14:36:57.000000Z\",\n        \"updated_at\": \"2024-01-01T14:36:57.000000Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Blogs",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|TdU1lCWGpiSS0NuCstRRCdqIjWAXyubDqWEUCRth1a553444",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{local}}api/blogs/3",
+					"host": [
+						"{{local}}api"
+					],
+					"path": [
+						"blogs",
+						"3"
+					]
+				},
+				"description": "this api for delete blogs using id"
+			},
+			"response": [
+				{
+					"name": "Delete Blogs Failed",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/blogs/4",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"blogs",
+								"4"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 Jan 2024 14:38:58 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"error\": \"ERR_NOT_FOUND\",\n    \"message\": \"resource is not found\"\n}"
+				},
+				{
+					"name": "Delete Blogs Success",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{local}}api/blogs/3",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"blogs",
+								"3"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 Jan 2024 14:39:09 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "57"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"success delete blogs\",\n    \"data\": []\n}"
+				}
+			]
+		},
+		{
+			"name": "update blogs",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "3|TdU1lCWGpiSS0NuCstRRCdqIjWAXyubDqWEUCRth1a553444",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "_method",
+							"value": "PUT",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "Blog update data",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti vitae at architecto odit, suscipit corporis modi cum laboriosam necessitatibus impedit earum ex exercitationem nihil dolore sit, perferendis blanditiis inventore atque!\n",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/Users/wehmamxx/Downloads/spacex-Ptd-iTdrCJM-unsplash.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{local}}api/blogs/20",
+					"host": [
+						"{{local}}api"
+					],
+					"path": [
+						"blogs",
+						"20"
+					]
+				},
+				"description": "this api for update blogs"
+			},
+			"response": [
+				{
+					"name": "update blogs Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Blog update data",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti vitae at architecto odit, suscipit corporis modi cum laboriosam necessitatibus impedit earum ex exercitationem nihil dolore sit, perferendis blanditiis inventore atque!\n",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/wehmamxx/Downloads/spacex-Ptd-iTdrCJM-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}api/blogs/2",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"blogs",
+								"2"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 Jan 2024 14:36:20 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "59"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": true,\n    \"message\": \"Success Update Blogs\",\n    \"data\": {\n        \"id\": 2,\n        \"uuid\": \"ca14dd1f-46e1-460f-8773-391e1455eeec\",\n        \"title\": \"Blog update data\",\n        \"description\": \"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti vitae at architecto odit, suscipit corporis modi cum laboriosam necessitatibus impedit earum ex exercitationem nihil dolore sit, perferendis blanditiis inventore atque!\",\n        \"image\": \"public/images/a7xzNK3YOu1s3HXzpeuCoXJslJPzCpwveJtPWrCQ.jpg\",\n        \"created_at\": \"2024-01-01T14:33:31.000000Z\",\n        \"updated_at\": \"2024-01-01T14:36:20.000000Z\"\n    }\n}"
+				},
+				{
+					"name": "update blogs Failed",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "_method",
+									"value": "PUT",
+									"type": "text"
+								},
+								{
+									"key": "title",
+									"value": "Blog update data",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti vitae at architecto odit, suscipit corporis modi cum laboriosam necessitatibus impedit earum ex exercitationem nihil dolore sit, perferendis blanditiis inventore atque!\n",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/Users/wehmamxx/Downloads/spacex-Ptd-iTdrCJM-unsplash.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{local}}api/blogs/20",
+							"host": [
+								"{{local}}api"
+							],
+							"path": [
+								"blogs",
+								"20"
+							]
+						}
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Host",
+							"value": "localhost:8000"
+						},
+						{
+							"key": "Connection",
+							"value": "close"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.3.0"
+						},
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, private"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 01 Jan 2024 14:36:32 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "X-RateLimit-Limit",
+							"value": "60"
+						},
+						{
+							"key": "X-RateLimit-Remaining",
+							"value": "58"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": false,\n    \"error\": \"ERR_NOT_FOUND\",\n    \"message\": \"resource is not found\"\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "local",
+			"value": "http://localhost:8000/"
+		}
+	]
+}
